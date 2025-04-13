@@ -21,4 +21,8 @@ public class UsuarioService {
     public Usuario salvar(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
+
+    public Optional<Usuario> obterPorId(UUID id) {
+        return usuarioRepository.findById(id);
+    }
 }

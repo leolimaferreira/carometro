@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postagem</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .post-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .photo-placeholder {
+            height: 300px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 18px;
+        }
+
+        .content-section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+
+        .info-item {
+            margin-bottom: 8px;
+        }
+
+        .links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .link {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .quote {
+            font-style: italic;
+            margin: 15px 0;
+            padding-left: 15px;
+            border-left: 3px solid #2c3e50;
+            color: #495057;
+        }
+
+        .footer {
+            background-color: #f1f1f1;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .photo-container {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .profile-photo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .no-photo-placeholder {
+            color: #777;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-voltar:hover {
+            background-color: #1a252f;
+        }
+
+        .section-title {
+            margin-top: 20px;
+            color: #2c3e50;
+            font-size: 1.1em;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+
+        .info-item strong {
+            color: #2c3e50;
+            min-width: 120px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="post-container">
+    <div class="header">
+        CARÔMETRO
+    </div>
+
+    <div class="photo-placeholder">
+        <img th:if="${usuario.fotoUrl}"
+             th:src="${usuario.fotoUrl}"
+             alt="Foto do aluno"
+             class="profile-photo">
+
+        <div th:unless="${usuario.fotoUrl}" class="no-photo-placeholder">
+            <i class="fas fa-camera-slash"></i>
+            <div>SEM FOTO</div>
+        </div>
+
+    </div>
+
+    <div class="content-section">
+        <div class="section-title">Dados pessoais</div>
+        <div class="info-item">Nome: <span th:text="${postagem.nome} ?: '[Nome do Aluno]'">[Nome do Aluno]</span></div>
+        <div class="info-item">Curso: <span th:text="${postagem.curso} ?: '[Nome do Curso]'">[Nome do Curso]</span>
+        </div>
+        <div class="info-item">Ano: <span
+                th:text="${postagem.anoConclusao} ?: '[Ano de Formatura]'">[Ano de Formatura]</span></div>
+
+        <div class="section-title" style="margin-top: 20px;">Links</div>
+        <div class="links">
+            <a th:href="${postagem.linkedin} ?: '#'" class="link">Linkedin</a>
+            <a th:href="${postagem.github} ?: '#'" class="link">GitHub</a>
+        </div>
+
+        <div class="section-title">Experiência Profissional</div>
+        <div class="info-item">
+            <strong>Empresa:</strong> <span th:text="${postagem.empresa} ?: 'Não informado'">[Nome da Empresa]</span>
+        </div>
+        <div class="info-item">
+            <strong>Função:</strong> <span th:text="${postagem.funcao} ?: 'Não informado'">[Cargo/Função]</span>
+        </div>
+        <div class="info-item">
+            <strong>Tempo de Trabalho:</strong> <span
+                th:text="${postagem.tempoTrabalho} ?: 'Não informado'">[Período]</span>
+        </div>
+
+        <div class="section-title">Considerações sobre a FATEC</div>
+        <div class="info-item" th:text="${aluno.comentarioFatec} ?: '[Texto sobre a experiência acadêmica]'">[Texto
+            sobre o comentário sobre a fatec]
+        </div>
+
+        <div class="section-title">Comentário livre</div>
+        <div class="info-item" th:text="${aluno.comentarioLivre} ?: '[Texto sobre a experiência profissional]'">[Texto
+            sobre o comentário livre]
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <a th:href="@{/home}" class="btn-voltar">Voltar</a>
+    </div>
+</div>
+</body>
+</html>
