@@ -22,7 +22,7 @@ public class LoginController {
         if (usuario.getSenha().equals(password)) {
             return "redirect:/home";
         } else {
-            model.addAttribute("error", "true");
+            model.addAttribute("error", true);
             return "login";
         }
     }

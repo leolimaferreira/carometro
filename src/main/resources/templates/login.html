@@ -87,8 +87,8 @@
             <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
         </div>
         <button type="submit" class="btn">Entrar</button>
-        <div class="error-message" th:if="${param.error}">
-            <p>Usuário ou senha inválidos</p>
+        <div class="error-message" th:if="${error}">
+            <p>Credenciais incorretas. Por favor, tente novamente.</p>
         </div>
     </form>
 </div>
