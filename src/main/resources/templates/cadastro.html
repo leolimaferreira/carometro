@@ -95,7 +95,6 @@
             text-decoration: underline;
         }
 
-        /* Estilo para mensagens de erro (caso precise) */
         .error-message {
             color: #e74c3c;
             font-size: 13px;
@@ -112,7 +111,7 @@
 
 <div class="cadastro-container">
     <h1>Cadastro de Usuário</h1>
-    <form th:action="@{/}" method="post" th:object="${usuario}">
+    <form th:action="@{/cadastrar}" method="post" th:object="${usuario}">
         <div class="input-group">
             <label for="nome">Nome Completo:</label>
             <input type="text" id="nome" th:field="*{nome}" required placeholder="Digite seu nome completo">
@@ -141,7 +140,9 @@
             </select>
             <span class="error-message">Por favor, selecione um tipo</span>
         </div>
-
+        <div class="error-message" th:if="${error_email_registered}"  style="display: block; margin-bottom: 15px;">
+            <p>Há um usuário cadastrado com esse e-mail. <a th:href="@{/login}">Faça o login</a></p>
+        </div>
         <button type="submit" class="btn">Cadastrar</button>
 
         <div class="login-link">

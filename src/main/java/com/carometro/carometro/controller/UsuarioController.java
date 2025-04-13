@@ -7,10 +7,7 @@ import com.carometro.carometro.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -19,8 +16,14 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
     private final UsuarioMapper mapper;
 
-    @PostMapping
-    public String cadastroUsuario(UsuarioCadastro dto) {
+    @PostMapping("/cadastrar")
+    public String cadastroUsuario(@ModelAttribute("usuario") UsuarioCadastro dto, Model model) {
+        if (usuarioService.obterPorEmail(dto.email()).isPresent()) {
+            model.addAttribute("error_email_registered", true);
+            model.addAttribute("usuario", dto);
+            return "cadastro";
+        }
+
         Usuario usuario = mapper.toEntity(dto);
         usuarioService.salvar(usuario);
         return "redirect:/login";

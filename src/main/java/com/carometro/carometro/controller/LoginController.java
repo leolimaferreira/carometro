@@ -22,14 +22,14 @@ public class LoginController {
         Optional<Usuario> usuario = usuarioService.obterPorEmail(username);
 
         if (usuario.isEmpty()) {
-            model.addAttribute("error", true);
+            model.addAttribute("error_not_found", true);
             return "login";
         }
 
         if (usuario.get().getSenha().equals(password)) {
             return "redirect:/home";
         } else {
-            model.addAttribute("error", true);
+            model.addAttribute("error_credentials", true);
             return "login";
         }
     }

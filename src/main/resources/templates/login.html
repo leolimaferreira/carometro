@@ -104,8 +104,11 @@
             <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
         </div>
         <button type="submit" class="btn">Entrar</button>
-        <div class="error-message" th:if="${error}">
+        <div class="error-message" th:if="${error_credentials}">
             <p>Credenciais incorretas. Por favor, tente novamente.</p>
+        </div>
+        <div class="error-message" th:if="${error_not_found}">
+            <p>Não há usuários cadastrados com esse e-mail. Por favor, se cadastre.</p>
         </div>
         <div class="sigin-link">
             Não tem uma conta? <a href="/cadastro">Faça o cadastro</a>
