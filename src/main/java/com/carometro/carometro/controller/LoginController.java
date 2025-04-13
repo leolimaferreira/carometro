@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 @RequiredArgsConstructor
 public class LoginController {
@@ -17,9 +19,14 @@ public class LoginController {
 
     @PostMapping("/login")
     public String processarLogin(@RequestParam String username, @RequestParam String password, Model model) {
-        Usuario usuario = usuarioService.obterPorEmail(username).get();
+        Optional<Usuario> usuario = usuarioService.obterPorEmail(username);
 
-        if (usuario.getSenha().equals(password)) {
+        if (usuario.isEmpty()) {
+            model.addAttribute("error", true);
+            return "login";
+        }
+
+        if (usuario.get().getSenha().equals(password)) {
             return "redirect:/home";
         } else {
             model.addAttribute("error", true);
