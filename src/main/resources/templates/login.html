@@ -66,6 +66,23 @@
             background-color: #0056b3;
         }
 
+        .sigin-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .sigin-link a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .sigin-link a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
         .error-message {
             color: red;
             font-size: 14px;
@@ -89,6 +106,9 @@
         <button type="submit" class="btn">Entrar</button>
         <div class="error-message" th:if="${error}">
             <p>Credenciais incorretas. Por favor, tente novamente.</p>
+        </div>
+        <div class="sigin-link">
+            Não tem uma conta? <a href="/cadastro">Faça o cadastro</a>
         </div>
     </form>
 </div>
