@@ -1,30 +1,154 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .cadastro-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            max-width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .login-link a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Estilo para mensagens de erro (caso precise) */
+        .error-message {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        input:invalid:not(:placeholder-shown) + .error-message {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-<h1>Cadastro de Usuário</h1>
 
-<form th:action="@{/usuarios}" method="post" th:object="${usuario}">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" th:field="*{nome}" required />
-    <br/>
+<div class="cadastro-container">
+    <h1>Cadastro de Usuário</h1>
+    <form th:action="@{/}" method="post" th:object="${usuario}">
+        <div class="input-group">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" th:field="*{nome}" required placeholder="Digite seu nome completo">
+            <span class="error-message">Por favor, insira seu nome</span>
+        </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" th:field="*{email}" required />
-    <br/>
+        <div class="input-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" th:field="*{email}" required placeholder="seu@email.com">
+            <span class="error-message">Por favor, insira um e-mail válido</span>
+        </div>
 
-    <label for="senha">Senha:</label>
-    <input type="password" id="senha" th:field="*{senha}" required />
-    <br/>
+        <div class="input-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" th:field="*{senha}" required placeholder="Crie uma senha">
+            <span class="error-message">Por favor, insira uma senha</span>
+        </div>
 
-    <label for="senha">Role:</label>
-    <input type="password" id="role" th:field="*{role}" required />
-    <br/>
+        <div class="input-group">
+            <label for="role">Tipo de Usuário:</label>
+            <select id="role" th:field="*{role}" required>
+                <option value="" disabled selected>Selecione um tipo</option>
+                <option value="ADMIN">Administrador</option>
+                <option value="EX_ALUNO">Ex Aluno</option>
+                <option value="COORDENADOR">Coordenador</option>
+            </select>
+            <span class="error-message">Por favor, selecione um tipo</span>
+        </div>
 
-    <button type="submit">Cadastrar</button>
-</form>
+        <button type="submit" class="btn">Cadastrar</button>
+
+        <div class="login-link">
+            Já tem uma conta? <a href="/login">Faça login</a>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
