@@ -60,6 +60,15 @@
         .btn-cadastro:hover {
             background-color: #27ae60;
         }
+
+        .btn-guest {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .btn-guest:hover {
+            background-color: #d35400;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +77,10 @@
 <div class="buttons-container">
     <a th:href="@{/login}" class="btn btn-login">Login</a>
     <a th:href="@{/cadastro}" class="btn btn-cadastro">Cadastro</a>
+    <form th:action="@{/home}" method="post" style="display: inline;">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+        <button type="submit" class="btn btn-guest">Entrar sem cadastro</button>
+    </form>
 </div>
 </body>
 </html>

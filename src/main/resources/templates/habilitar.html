@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carômetro - Home</title>
+    <title>Carômetro - Habilitar Postagem</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             background-color: #f8f9fa;
             padding-top: 20px;
-            display: flex;
         }
 
         .post-card {
@@ -138,157 +137,18 @@
         [sec\:authorize] > *:last-child {
             margin-right: 0;
         }
-
-        .sidebar {
-            width: 250px;
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            min-height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-
-        .sidebar.active {
-            transform: translateX(0);
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-            margin-top: 30px;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 15px;
-        }
-
-        .sidebar-menu a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .sidebar-menu a:hover {
-            background-color: #34495e;
-        }
-
-        .sidebar-menu i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        #mainContent {
-            flex: 1;
-            margin-left: 0;
-            transition: margin-left 0.3s;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        #mainContent.sidebar-active {
-            margin-left: 250px;
-        }
-
-        .sidebar-toggle {
-            position: fixed;
-            left: 20px;
-            top: 20px;
-            z-index: 900;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .main-content.sidebar-active {
-                margin-left: 0;
-            }
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: none;
-        }
-
-        @media (min-width: 769px) {
-            .sidebar-overlay {
-                display: none !important;
-            }
-        }
     </style>
 </head>
 <body>
-
-<div class="sidebar-overlay" id="sidebarOverlay" sec:authorize="isAuthenticated()"></div>
-<div class="sidebar" id="sidebar" sec:authorize="isAuthenticated()">
-    <div class="sidebar-header">
-        <h4>Menu</h4>
-    </div>
-    <ul class="sidebar-menu">
-        <li sec:authorize="hasRole('EX_ALUNO')">
-            <a th:href="@{/postagem/cadastro}">
-                <i class="fas fa-plus-circle"></i>
-                Nova Postagem
-            </a>
-        </li>
-
-        <li sec:authorize="hasRole('COORDENADOR')">
-            <a th:href="@{/habilitar}">
-                <i class="fas fa-toggle-on"></i>
-                Habilitar Postagens
-            </a>
-        </li>
-
-        <!-- Opção para ADMIN -->
-        <li sec:authorize="hasRole('ADMIN')">
-            <a th:href="@{/validar}">
-                <i class="fas fa-check-circle"></i>
-                Validar Postagens
-            </a>
-        </li>
-    </ul>
-</div>
-
-<button class="sidebar-toggle" id="sidebarToggle" sec:authorize="isAuthenticated()">
-    <i class="fas fa-bars"></i>
-</button>
-
 <div th:if="${param.logout}" class="alert alert-success text-center">
     Você foi desconectado com sucesso.
 </div>
 
-<div class="container" id="mainContent">
+<div class="container">
     <div class="row mb-4">
         <div class="col-12 text-center">
             <h1 class="display-4">CARÔMETRO</h1>
-            <p class="lead">Conheça as experiências profissionais dos nossos ex-alunos</p>
-            <div sec:authorize="!isAuthenticated()">
-                <a th:href="@{/login}" class="btn btn-outline-dark">Login</a>
-                <a th:href="@{/cadastro}" class="btn btn-dark">Cadastre-se</a>
-            </div>
+            <p class="lead">Habilite ou desabilite a postagem dos nossos ex-alunos</p>
             <div sec:authorize="isAuthenticated()">
                 <span>Bem-vindo, <span sec:authentication="name"></span>!</span>
                 <form th:action="@{/logout}" method="post" class="d-inline">
@@ -298,6 +158,7 @@
         </div>
     </div>
 
+    <!-- Filtros (opcional) -->
     <div class="row mb-4">
         <div class="col-md-4">
             <select class="form-select">
@@ -316,7 +177,9 @@
         </div>
     </div>
 
+    <!-- Listagem de Postagens -->
     <div class="row">
+        <!-- Cards de postagens (só aparece se houver postagens) -->
         <div th:each="postagem : ${postagens}" class="col-lg-4 col-md-6">
             <div class="post-card">
                 <div class="post-header">
@@ -345,6 +208,7 @@
             </div>
         </div>
 
+        <!-- Mensagem quando não há postagens -->
         <div th:if="${postagens.isEmpty()}" class="col-12">
             <div class="text-center py-5 empty-state">
                 <i class="fas fa-newspaper fa-5x mb-4" style="color: #e9ecef;"></i>
@@ -353,6 +217,7 @@
         </div>
     </div>
 
+    <!-- Paginação (opcional) -->
     <div class="row mt-4">
         <div class="col-12">
             <nav aria-label="Page navigation">
@@ -371,42 +236,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    const sidebar = document.getElementById('sidebar');
-    const sidebarToggle = document.getElementById('sidebarToggle');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-    const mainContent = document.getElementById('mainContent');
-
-    function toggleSidebar() {
-        sidebar.classList.toggle('active');
-        if (sidebarOverlay) {
-            sidebarOverlay.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
-        }
-        if (mainContent) {
-            mainContent.classList.toggle('sidebar-active');
-        }
-    }
-
-    sidebarToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleSidebar();
-    });
-
-    if (sidebarOverlay) {
-        sidebarOverlay.addEventListener('click', function() {
-            toggleSidebar();
-        });
-    }
-
-    document.addEventListener('click', function(e) {
-        if (sidebar.classList.contains('active') &&
-            !sidebar.contains(e.target) &&
-            e.target !== sidebarToggle) {
-            toggleSidebar();
-        }
-    });
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

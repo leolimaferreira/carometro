@@ -18,20 +18,26 @@ public class LoginController {
     private final UsuarioService usuarioService;
 
     @PostMapping("/login")
-    public String processarLogin(@RequestParam String username, @RequestParam String password, Model model) {
-        Optional<Usuario> usuario = usuarioService.obterPorEmail(username);
+    public String processarLogin(@RequestParam(
+            value = "error", required = false) String error,
+            @RequestParam(value = "logout", required = false) String logout,
+            @RequestParam(value = "not_found", required = false) String notFound,
+            Model model) {
 
-        if (usuario.isEmpty()) {
-            model.addAttribute("error_not_found", true);
-            return "login";
-        }
-
-        if (usuario.get().getSenha().equals(password)) {
-            return "redirect:/home";
-        } else {
+        if (error != null) {
             model.addAttribute("error_credentials", true);
             return "login";
         }
+        if (logout != null) {
+            model.addAttribute("logout_success", true);
+            return "login";
+        }
+
+        if (notFound != null) {
+            model.addAttribute("error_not_found", true);
+            return "login";
+        }
+        return "redirect:/home";
     }
 
     @GetMapping("/login")

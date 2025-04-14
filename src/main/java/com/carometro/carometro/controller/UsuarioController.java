@@ -25,6 +25,7 @@ public class UsuarioController {
         }
 
         Usuario usuario = mapper.toEntity(dto);
+        System.out.println("Cadastrando usuario: " + usuario.getNome() + "/" + usuario.getEmail() + "/" + usuario.getSenha());
         usuarioService.salvar(usuario);
         return "redirect:/login";
     }

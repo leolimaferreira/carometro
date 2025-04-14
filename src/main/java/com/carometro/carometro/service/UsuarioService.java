@@ -18,8 +18,8 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email);
     }
 
-    public Usuario salvar(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+    public void salvar(Usuario usuario) {
+        usuarioRepository.save(usuario);
     }
 
     public Optional<Usuario> obterPorId(UUID id) {

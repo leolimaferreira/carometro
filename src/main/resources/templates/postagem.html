@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,12 +143,12 @@
     </div>
 
     <div class="photo-placeholder">
-        <img th:if="${usuario.fotoUrl}"
-             th:src="${usuario.fotoUrl}"
+        <img th:if="${postagem.fotoUrl}"
+             th:src="${postagem.fotoUrl}"
              alt="Foto do aluno"
              class="profile-photo">
 
-        <div th:unless="${usuario.fotoUrl}" class="no-photo-placeholder">
+        <div th:unless="${postagem.fotoUrl}" class="no-photo-placeholder">
             <i class="fas fa-camera-slash"></i>
             <div>SEM FOTO</div>
         </div>
@@ -157,7 +157,7 @@
 
     <div class="content-section">
         <div class="section-title">Dados pessoais</div>
-        <div class="info-item">Nome: <span th:text="${postagem.nome} ?: '[Nome do Aluno]'">[Nome do Aluno]</span></div>
+        <div class="info-item">Nome: <span th:text="${postagem.usuario.nome} ?: '[Nome do Aluno]'">[Nome do Aluno]</span></div>
         <div class="info-item">Curso: <span th:text="${postagem.curso} ?: '[Nome do Curso]'">[Nome do Curso]</span>
         </div>
         <div class="info-item">Ano: <span
@@ -182,18 +182,60 @@
         </div>
 
         <div class="section-title">Considerações sobre a FATEC</div>
-        <div class="info-item" th:text="${aluno.comentarioFatec} ?: '[Texto sobre a experiência acadêmica]'">[Texto
+        <div class="info-item" th:text="${postagem.comentarioFatec} ?: '[Texto sobre a experiência acadêmica]'">[Texto
             sobre o comentário sobre a fatec]
         </div>
 
         <div class="section-title">Comentário livre</div>
-        <div class="info-item" th:text="${aluno.comentarioLivre} ?: '[Texto sobre a experiência profissional]'">[Texto
+        <div class="info-item" th:text="${postagem.comentarioLivre} ?: '[Texto sobre a experiência profissional]'">[Texto
             sobre o comentário livre]
         </div>
     </div>
 
     <div style="text-align: center; margin: 20px 0;">
         <a th:href="@{/home}" class="btn-voltar">Voltar</a>
+        <div sec:authorize="hasRole('COORDENADOR')" style="margin-top: 15px;">
+            <form th:action="@{'/habilitar/' + ${postagem.id}}" method="post" style="display: inline-block;">
+                <button th:if="${postagem.habilitado}"
+                        type="submit"
+                        class="btn-voltar"
+                        style="background-color: #e74c3c; margin-left: 10px;">
+                    Desabilitar Postagem
+                </button>
+                <button th:unless="${postagem.habilitado}"
+                        type="submit"
+                        class="btn-voltar"
+                        style="background-color: #2ecc71; margin-left: 10px;">
+                    Habilitar Postagem
+                </button>
+            </form>
+        </div>
+        <div sec:authorize="hasRole('ADMIN')" style="margin-top: 15px;">
+            <form th:action="@{'/validar/' + ${postagem.id}}" method="post" style="display: inline-block;">
+                <button th:if="${postagem.validado}"
+                        type="submit"
+                        class="btn-voltar"
+                        style="background-color: #e74c3c; margin-left: 10px;">
+                    Invalidar Postagem
+                </button>
+                <button th:unless="${postagem.validado}"
+                        type="submit"
+                        class="btn-voltar"
+                        style="background-color: #2ecc71; margin-left: 10px;">
+                    Validar Postagem
+                </button>
+            </form>
+        </div>
+    </div>
+    <div sec:authorize="hasRole('ADMIN')"
+         class="content-section"
+         style="text-align: center; margin-top: -10px; padding: 10px;">
+        <div th:if="${postagem.validado}" style="color: #27ae60; font-weight: bold;">
+            <i class="fas fa-check-circle"></i> Esta postagem está visível publicamente
+        </div>
+        <div th:unless="${postagem.validado}" style="color: #e74c3c; font-weight: bold;">
+            <i class="fas fa-times-circle"></i> Esta postagem está oculta do público
+        </div>
     </div>
 </div>
 </body>
