@@ -1,4 +1,4 @@
-# 📚 Carômetro - Sistema de Cadastro de Usuários
+# 📚 Carômetro
 
 ![Java](https://img.shields.io/badge/Java-21-blue?logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen?logo=springboot)
