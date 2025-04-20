@@ -20,6 +20,22 @@
 
 ---
 
+## 🧠 Sobre o Projeto
+
+Este sistema está em fase de desenvolvimento e tem como objetivo ser um **Carômetro Digital**.
+
+A plataforma permite que **ex-alunos** realizem o cadastro de postagens com suas experiências acadêmicas e profissionais. Cada ex-aluno pode **atualizar apenas suas próprias postagens**, mantendo a segurança e integridade das informações.
+
+O sistema conta com três perfis de usuário:
+
+- 👤 **Ex-Alunos**: podem cadastrar e editar suas próprias postagens.
+- 🧑‍🏫 **Coordenadores**: têm permissão para **habilitar ou desabilitar postagens**, decidindo quais podem ser exibidas publicamente.
+- 👨‍💼 **Administradores**: são responsáveis por **validar ou invalidar postagens**, garantindo que apenas conteúdos apropriados e verificados sejam publicados.
+
+A **página inicial (home)** exibe **apenas as postagens que foram habilitadas e validadas**, oferecendo uma vitrine confiável e organizada para visualização pública.
+
+---
+
 ## ⚙️ Como Rodar o Projeto
 
 ```bash
