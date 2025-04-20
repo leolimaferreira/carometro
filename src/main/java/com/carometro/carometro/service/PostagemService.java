@@ -30,4 +30,8 @@ public class PostagemService {
     public void salvar(Postagem postagem) {
         postagemRepository.save(postagem);
     }
+
+    public void atualizar(Postagem postagem) {
+
+    }
 }

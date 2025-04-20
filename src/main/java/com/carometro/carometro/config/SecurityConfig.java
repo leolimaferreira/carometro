@@ -37,6 +37,8 @@ public class SecurityConfig {
                                 "/postagem/exibir/**").permitAll()
                         .requestMatchers("/postagem/cadastro").hasRole("EX_ALUNO")
                         .requestMatchers("/postagem/cadastrar").hasRole("EX_ALUNO")
+                        .requestMatchers("/postagem/atualizacao").hasRole("EX_ALUNO")
+                        .requestMatchers("/postagem/atualizar/**").hasRole("EX_ALUNO")
                         .requestMatchers("/habilitar/**").hasRole("COORDENADOR")
                         .requestMatchers("validar/**").hasRole("ADMIN")
                         .anyRequest().authenticated()

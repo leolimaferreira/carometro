@@ -226,6 +226,16 @@
                 </button>
             </form>
         </div>
+        <div sec:authorize="hasRole('EX_ALUNO')" th:if="${#authentication.principal.username == postagem.usuario.email}" style="margin-top: 15px;">
+            <form th:action="@{'/postagem/atualizacao/' + ${postagem.id}}" style="display: inline-block;">
+                <button
+                        type="submit"
+                        class="btn-voltar"
+                        style="background-color: #2ecc71; margin-left: 10px;">
+                    Atualizar Postagem
+                </button >
+            </form>
+        </div>
     </div>
     <div sec:authorize="hasRole('ADMIN')"
          class="content-section"
