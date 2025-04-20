@@ -127,5 +127,7 @@ CREATE TABLE postagem (
 ### 🧾 Ver Postagem
 ![Carômetro-Home-Google-Chrome-2025-04-20-13-44-10](https://github.com/user-attachments/assets/d3a61e27-0fd1-4b26-8569-e243683f0ff3)
 
+### 🔄 Atualizar Postagem
+![Carômetro-Home-Google-Chrome-2025-04-20-19-33-07](https://github.com/user-attachments/assets/a9df091a-210e-4e98-8b44-bb62fb407537)
 
 
