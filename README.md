@@ -20,6 +20,22 @@
 
 ---
 
+## 🧠 Sobre o Projeto
+
+Este sistema está em fase de desenvolvimento e tem como objetivo ser um **Carômetro Digital**.
+
+A plataforma permite que **ex-alunos** realizem o cadastro de postagens com suas experiências acadêmicas e profissionais. Cada ex-aluno pode **atualizar apenas suas próprias postagens**, mantendo a segurança e integridade das informações.
+
+O sistema conta com três perfis de usuário:
+
+- 👤 **Ex-Alunos**: podem cadastrar e editar suas próprias postagens.
+- 🧑‍🏫 **Coordenadores**: têm permissão para **habilitar ou desabilitar postagens**, decidindo quais podem ser exibidas publicamente.
+- 👨‍💼 **Administradores**: são responsáveis por **validar ou invalidar postagens**, garantindo que apenas conteúdos apropriados e verificados sejam publicados.
+
+A **página inicial (home)** exibe **apenas as postagens que foram habilitadas e validadas**, oferecendo uma vitrine confiável e organizada para visualização pública.
+
+---
+
 ## ⚙️ Como Rodar o Projeto
 
 ```bash
@@ -29,7 +45,7 @@ git clone https://github.com/leolimaferreira/carometro.git
 # Acesse a pasta do projeto
 cd carometro
 
-# Configure o application.properties com seu banco de dados
+# Configure o application.yml com seu banco de dados
 
 # Rode a aplicação
 ./mvnw spring-boot:run
@@ -130,4 +146,57 @@ CREATE TABLE postagem (
 ### 🔄 Atualizar Postagem
 ![Carômetro-Home-Google-Chrome-2025-04-20-19-33-07](https://github.com/user-attachments/assets/a9df091a-210e-4e98-8b44-bb62fb407537)
 
+---
+
+## 📡 Endpoints da API
+
+### 🔐 Autenticação
+| Método | Rota      | Descrição                        |
+|--------|-----------|----------------------------------|
+| GET    | `/login`  | Exibe o formulário de login      |
+| POST   | `/login`  | Processa o login                 |
+
+---
+
+### 👤 Usuário
+| Método | Rota        | Descrição                              |
+|--------|-------------|----------------------------------------|
+| GET    | `/cadastro` | Exibe o formulário de cadastro         |
+| POST   | `/cadastrar`| Cadastra um novo usuário               |
+
+---
+
+### 📝 Postagem
+| Método | Rota                     | Descrição                                                       |
+|--------|--------------------------|-----------------------------------------------------------------|
+| GET    | `/postagem/cadastro`     | Exibe o formulário de cadastro de postagem                      |
+| POST   | `/postagem/cadastrar`    | Cadastra uma nova postagem (ex-aluno)                           |
+| GET    | `/postagem/atualizacao/{id}` | Exibe o formulário de atualização da postagem                |
+| POST   | `/postagem/atualizar/{id}`   | Atualiza uma postagem existente (somente do próprio usuário)  |
+| GET    | `/postagem/exibir/{id}`      | Exibe os detalhes de uma postagem                             |
+
+---
+
+### 🏠 Página Inicial
+| Método | Rota      | Descrição                                        |
+|--------|-----------|--------------------------------------------------|
+| GET    | `/`       | Redireciona para `/index`                        |
+| GET    | `/home`   | Exibe postagens habilitadas **e** validadas      |
+| POST   | `/home`   | Faz logout da sessão guest e redireciona à home  |
+
+---
+
+### 🧑‍🏫 Habilitação de Postagens (Coordenadores)
+| Método | Rota            | Descrição                                       |
+|--------|------------------|-------------------------------------------------|
+| GET    | `/habilitar`     | Lista todas as postagens para habilitação      |
+| POST   | `/habilitar/{id}`| Habilita ou desabilita uma postagem específica |
+
+---
+
+### 👨‍💼 Validação de Postagens (Administradores)
+| Método | Rota            | Descrição                                       |
+|--------|------------------|-------------------------------------------------|
+| GET    | `/validar`       | Lista todas as postagens para validação        |
+| POST   | `/validar/{id}`  | Valida ou invalida uma postagem específica     |
 
