@@ -32,3 +32,11 @@ cd carometro
 
 # Rode a aplicação
 ./mvnw spring-boot:run
+```
+
+---
+
+## 🖼️ Telas do Sistema
+### 🤖 índice
+![image](https://github.com/user-attachments/assets/16a00cb1-0d93-487e-bdfa-a4ea5ad4e94c)
+
