@@ -61,4 +61,8 @@ cd carometro
 - Administrador
 ![image](https://github.com/user-attachments/assets/0f1863b0-10b8-4d60-85c5-f1c164419208)
 
+### 📨 Tela para cadastro de nova postagem
+![Carômetro-Cadastrar-Postagem-Google-Chrome-2025-04-20-13-25-24](https://github.com/user-attachments/assets/2614febe-4f75-4d39-a5fa-44a689bd22b7)
+
+
 
