@@ -41,6 +41,12 @@ cd carometro
 ### 🤖 Índice
 ![image](https://github.com/user-attachments/assets/16a00cb1-0d93-487e-bdfa-a4ea5ad4e94c)
 
+### 👤 Login
+![image](https://github.com/user-attachments/assets/0e4210f1-334b-40d5-97a5-cf1035f92342)
+
+### 📝 Cadastro
+![image](https://github.com/user-attachments/assets/a7bf685c-01e8-4301-ad2c-f156e7ae19e7)
+
 ### 🏠 Home
 
 - Sem Cadastro
