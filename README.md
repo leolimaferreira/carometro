@@ -37,6 +37,22 @@ cd carometro
 ---
 
 ## 🖼️ Telas do Sistema
-### 🤖 índice
+
+### 🤖 Índice
 ![image](https://github.com/user-attachments/assets/16a00cb1-0d93-487e-bdfa-a4ea5ad4e94c)
+
+### 🏠 Home
+
+- Sem Cadastro
+![image](https://github.com/user-attachments/assets/ebec57d5-6e46-4fc6-9815-aee03e7c0053)
+
+- Ex-Aluno
+![image](https://github.com/user-attachments/assets/012c893c-3c25-4f33-b8ef-8add96c7f8b7)
+
+- Coordenador
+![image](https://github.com/user-attachments/assets/ed152507-6d87-4f22-9693-bc3bf9dd3d7c)
+
+- Administrador
+![image](https://github.com/user-attachments/assets/0f1863b0-10b8-4d60-85c5-f1c164419208)
+
 
