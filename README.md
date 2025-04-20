@@ -65,10 +65,11 @@ cd carometro
 ![Carômetro-Cadastrar-Postagem-Google-Chrome-2025-04-20-13-25-24](https://github.com/user-attachments/assets/2614febe-4f75-4d39-a5fa-44a689bd22b7)
 
 ### 📤 Habilitar postagens
-![Carômetro-Cadastrar-Postagem-Google-Chrome-2025-04-20-13-25-24](https://github.com/user-attachments/assets/a1b362fc-8fca-46d4-808a-91f612db9fb4)
+![Carômetro-Home-Google-Chrome-2025-04-20-13-32-28](https://github.com/user-attachments/assets/89aa757b-a828-4d45-ab26-79829a140883)
 
 ### ✅ Validar postagens
-![Carômetro-Home-Google-Chrome-2025-04-20-13-32-28](https://github.com/user-attachments/assets/f8793ffc-2d12-4bde-a3d7-9911422f801c)
+![Carômetro-Home-Google-Chrome-2025-04-20-13-36-52](https://github.com/user-attachments/assets/216bf600-94cc-485f-8d5f-78e32d3cda15)
+
 
 
 
