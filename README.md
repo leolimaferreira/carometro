@@ -11,7 +11,8 @@
 
 - ✅ Java 21  
 - ✅ Spring Boot 3  
-- ✅ Spring Web  
+- ✅ Spring Web
+- ✅ Spring Security    
 - ✅ Spring Data JPA  
 - ✅ Thymeleaf  
 - ✅ Lombok  
