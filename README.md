@@ -45,7 +45,7 @@ git clone https://github.com/leolimaferreira/carometro.git
 # Acesse a pasta do projeto
 cd carometro
 
-# Configure o application.properties com seu banco de dados
+# Configure o application.yml com seu banco de dados
 
 # Rode a aplicação
 ./mvnw spring-boot:run
