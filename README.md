@@ -123,6 +123,8 @@ CREATE TABLE postagem (
 ### ✅ Validar Postagens
 ![Carômetro-Home-Google-Chrome-2025-04-20-13-36-52](https://github.com/user-attachments/assets/216bf600-94cc-485f-8d5f-78e32d3cda15)
 
+### 🧾 Ver Postagem
+![Carômetro-Home-Google-Chrome-2025-04-20-13-44-10](https://github.com/user-attachments/assets/d3a61e27-0fd1-4b26-8569-e243683f0ff3)
 
 
 
