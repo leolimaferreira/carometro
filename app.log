@@ -1396,3 +1396,52 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2025-04-20T19:31:09.914-03:00  INFO 17484 --- [carometro] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-04-20T19:31:09.914-03:00  INFO 17484 --- [carometro] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-04-20T19:31:09.916-03:00  INFO 17484 --- [carometro] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-04-20T19:43:14.395-03:00  INFO 17484 --- [carometro] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-20T19:43:14.402-03:00  INFO 17484 --- [carometro] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-04-20T19:43:14.409-03:00  INFO 17484 --- [carometro] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-20T19:43:14.413-03:00  INFO 17484 --- [carometro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-04-20T19:43:14.428-03:00  INFO 17484 --- [carometro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-04-20T20:14:32.197-03:00  INFO 15640 --- [carometro] [restartedMain] c.c.carometro.CarometroApplication       : Starting CarometroApplication using Java 21.0.2 with PID 15640 (C:\Users\leona\OneDrive\Documents\Projetos Back End\carometro\target\classes started by leona in C:\Users\leona\OneDrive\Documents\Projetos Back End\carometro)
+2025-04-20T20:14:32.201-03:00  INFO 15640 --- [carometro] [restartedMain] c.c.carometro.CarometroApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-04-20T20:14:32.284-03:00  INFO 15640 --- [carometro] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-20T20:14:32.285-03:00  INFO 15640 --- [carometro] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-20T20:14:33.642-03:00  INFO 15640 --- [carometro] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-20T20:14:33.756-03:00  INFO 15640 --- [carometro] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 2 JPA repository interfaces.
+2025-04-20T20:14:34.965-03:00  INFO 15640 --- [carometro] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-04-20T20:14:34.992-03:00  INFO 15640 --- [carometro] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-20T20:14:34.992-03:00  INFO 15640 --- [carometro] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-20T20:14:35.068-03:00  INFO 15640 --- [carometro] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-04-20T20:14:35.069-03:00  INFO 15640 --- [carometro] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2781 ms
+2025-04-20T20:14:35.389-03:00  INFO 15640 --- [carometro] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-20T20:14:35.476-03:00  INFO 15640 --- [carometro] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-20T20:14:35.537-03:00  INFO 15640 --- [carometro] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-20T20:14:36.015-03:00  INFO 15640 --- [carometro] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-20T20:14:36.073-03:00  INFO 15640 --- [carometro] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-20T20:14:36.281-03:00  INFO 15640 --- [carometro] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7df76616
+2025-04-20T20:14:36.284-03:00  INFO 15640 --- [carometro] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-20T20:14:36.406-03:00  INFO 15640 --- [carometro] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-20T20:14:38.297-03:00  INFO 15640 --- [carometro] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-20T20:14:38.304-03:00  INFO 15640 --- [carometro] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-20T20:14:38.984-03:00  WARN 15640 --- [carometro] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-20T20:14:39.019-03:00  INFO 15640 --- [carometro] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-04-20T20:14:39.140-03:00  INFO 15640 --- [carometro] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-04-20T20:14:39.377-03:00  WARN 15640 --- [carometro] [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [/login, home, /, /css/**, /js/**, /images/**, /cadastro, /cadastrar, /postagem/exibir/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-04-20T20:14:39.401-03:00  WARN 15640 --- [carometro] [restartedMain] thorizationManagerRequestMatcherRegistry : One of the patterns in [validar/**] is missing a leading slash. This is discouraged; please include the leading slash in all your request matcher patterns. In future versions of Spring Security, leaving out the leading slash will result in an exception.
+2025-04-20T20:14:39.877-03:00  INFO 15640 --- [carometro] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-04-20T20:14:39.931-03:00  INFO 15640 --- [carometro] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-04-20T20:14:39.944-03:00  INFO 15640 --- [carometro] [restartedMain] c.c.carometro.CarometroApplication       : Started CarometroApplication in 8.759 seconds (process running for 10.023)
+2025-04-20T20:14:50.920-03:00  INFO 15640 --- [carometro] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-20T20:14:50.921-03:00  INFO 15640 --- [carometro] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-04-20T20:14:50.923-03:00  INFO 15640 --- [carometro] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-04-20T20:15:39.278-03:00  INFO 15640 --- [carometro] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-20T20:15:39.284-03:00  INFO 15640 --- [carometro] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-04-20T20:15:39.290-03:00  INFO 15640 --- [carometro] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-20T20:15:39.294-03:00  INFO 15640 --- [carometro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-04-20T20:15:39.303-03:00  INFO 15640 --- [carometro] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

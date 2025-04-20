@@ -248,7 +248,7 @@
         <h4>Menu</h4>
     </div>
     <ul class="sidebar-menu">
-        <li sec:authorize="hasRole('EX_ALUNO')">
+        <li sec:authorize="hasRole('EX_ALUNO')" th:if="!${usuarioTemPostagem}">
             <a th:href="@{/postagem/cadastro}">
                 <i class="fas fa-plus-circle"></i>
                 Nova Postagem
@@ -262,7 +262,6 @@
             </a>
         </li>
 
-        <!-- Opção para ADMIN -->
         <li sec:authorize="hasRole('ADMIN')">
             <a th:href="@{/validar}">
                 <i class="fas fa-check-circle"></i>

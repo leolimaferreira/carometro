@@ -31,7 +31,7 @@ public class PostagemService {
         postagemRepository.save(postagem);
     }
 
-    public void atualizar(Postagem postagem) {
-
+    public boolean usuarioTemPostagem(String email) {
+        return postagemRepository.existsByUsuarioEmail(email);
     }
 }

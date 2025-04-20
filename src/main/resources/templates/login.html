@@ -108,7 +108,6 @@
 <div class="login-container">
     <h2 class="login-title">Acesse sua conta</h2>
 
-    <!-- Mensagem de erro -->
     <div th:if="${param.error}" class="alert alert-error">
         Credenciais inválidas. Por favor, tente novamente.
     </div>
@@ -117,12 +116,10 @@
         Não há usuários cadastrados com esse e-mail. Por favor, <a th:href="@{/cadastro}">cadastre-se</a>.
     </div>
 
-    <!-- Mensagem de logout -->
     <div th:if="${param.logout}" class="alert alert-logout">
         Você foi desconectado com sucesso.
     </div>
 
-    <!-- Formulário de login -->
     <form th:action="@{/login}" method="post">
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -26,7 +27,14 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String home(Model model) {
+    public String home(Principal principal, Model model) {
+
+        if (principal != null) {
+            String email = principal.getName();
+            boolean usuarioTemPostagem = postagemService.usuarioTemPostagem(email);
+            model.addAttribute("usuarioTemPostagem", usuarioTemPostagem);
+        }
+
         List<Postagem> postagens = postagemService.obterPostagensValidasEHabilitadas();
         model.addAttribute("postagens", postagens != null ? postagens : Collections.emptyList());
         return "home";
