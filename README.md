@@ -3,7 +3,6 @@
 ![Java](https://img.shields.io/badge/Java-21-blue?logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen?logo=springboot)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-template%20engine-orange?logo=thymeleaf)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
 ![Status](https://img.shields.io/badge/status-Em%20desenvolvimento-yellow)
 
 ---
