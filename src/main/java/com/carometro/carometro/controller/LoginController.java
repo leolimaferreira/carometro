@@ -19,10 +19,10 @@ public class LoginController {
 
     @PostMapping("/login")
     public String processarLogin(@RequestParam(
-            value = "error", required = false) String error,
-            @RequestParam(value = "logout", required = false) String logout,
-            @RequestParam(value = "not_found", required = false) String notFound,
-            Model model) {
+                                         value = "error", required = false) String error,
+                                 @RequestParam(value = "logout", required = false) String logout,
+                                 @RequestParam(value = "not_found", required = false) String notFound,
+                                 Model model) {
 
         if (error != null) {
             model.addAttribute("error_credentials", true);

@@ -28,6 +28,7 @@ A plataforma permite que **ex-alunos** realizem o cadastro de postagens com suas
 
 O sistema conta com três perfis de usuário:
 
+- 🚫👤 **Usuários Sem Cadastro**: podem apenas visualizar as postagens.
 - 👤 **Ex-Alunos**: podem cadastrar e editar suas próprias postagens.
 - 🧑‍🏫 **Coordenadores**: têm permissão para **habilitar ou desabilitar postagens**, decidindo quais podem ser exibidas publicamente.
 - 👨‍💼 **Administradores**: são responsáveis por **validar ou invalidar postagens**, garantindo que apenas conteúdos apropriados e verificados sejam publicados.
